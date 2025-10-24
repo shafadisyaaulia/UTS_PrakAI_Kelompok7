@@ -1,0 +1,830 @@
+{
+  "metadata": {
+    "version": "2.0",
+    "domain": "Sistem Pakar Pemupukan Tanaman Cabai",
+    "expert_source": "Balai Penelitian Tanaman Sayuran",
+    "created_at": "2025-10-24T14:00:00",
+    "inference_method": "Forward Chaining with Certainty Factor",
+    "fuzzy_logic_enabled": true,
+    "last_updated": "2025-10-24T14:00:00",
+    "total_rules": 20
+  },
+  "rules": {
+    "R001": {
+      "IF": [
+        "fase_vegetatif_lanjut",
+        "daun_kuning_merata",
+        "pertumbuhan_lambat"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Nitrogen (N)",
+        "severity": "Tinggi",
+        "pupuk": "Urea atau ZA",
+        "dosis": "150-200 kg/ha",
+        "dosis_per_tanaman": "5-7 gram/tanaman",
+        "metode": "Kocor atau tabur, aplikasi bertahap setiap 2 minggu",
+        "waktu_aplikasi": "Pagi atau sore hari",
+        "precaution": "Hindari aplikasi saat hujan, segera siram setelah aplikasi"
+      },
+      "CF": 0.9,
+      "explanation": "Nitrogen sangat penting untuk pertumbuhan vegetatif...",
+      "hash": "A1",
+      "confidence_level": "Sangat Tinggi",
+      "antecedents": [
+        "fase_vegetatif_lanjut",
+        "daun_kuning_merata",
+        "pertumbuhan_lambat"
+      ],
+      "cf": 0.8,
+      "consequent": "Kekurangan Nitrogen (N)",
+      "id": "R001",
+      "recommendation": {
+        "diagnosis": "Kekurangan Nitrogen (N)",
+        "dosis": "150-200 kg/ha",
+        "dosis_per_tanaman": "5-7 gram/tanaman",
+        "metode": "Kocor atau tabur, aplikasi bertahap setiap 2 minggu",
+        "precaution": "Hindari aplikasi saat hujan, segera siram setelah aplikasi",
+        "pupuk": "Urea atau ZA",
+        "severity": "Tinggi",
+        "waktu_aplikasi": "Pagi atau sore hari"
+      },
+      "status": "active",
+      "version": "1.0"
+    },
+    "R002": {
+      "IF": [
+        "fase_vegetatif_lanjut",
+        "daun_tua_keunguan",
+        "pertumbuhan_lambat"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Fosfor (P)",
+        "severity": "Sedang",
+        "pupuk": "SP-36 atau TSP",
+        "dosis": "100-150 kg/ha",
+        "dosis_per_tanaman": "3-4 gram/tanaman",
+        "metode": "Tabur di sekeliling tanaman",
+        "waktu_aplikasi": "Setelah 2 minggu tanam",
+        "precaution": "Campur pupuk ke tanah, hindari kontak langsung dengan akar"
+      },
+      "CF": 0.7,
+      "explanation": "Ciri klasik kekurangan fosfor adalah daun tua keunguan...",
+      "hash": "A2",
+      "confidence_level": "Tinggi"
+    },
+    "R003": {
+      "IF": [
+        "fase_vegetatif_lanjut",
+        "tepi_daun_terbakar",
+        "buah_kecil"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Kalium (K)",
+        "severity": "Tinggi",
+        "pupuk": "KCl atau KNO3",
+        "dosis": "100-150 kg/ha",
+        "dosis_per_tanaman": "3-5 gram/tanaman",
+        "metode": "Kocor atau tabur",
+        "waktu_aplikasi": "Awal pembentukan buah",
+        "precaution": "Jangan berikan secara berlebihan"
+      },
+      "CF": 0.8,
+      "explanation": "Kalium berperan untuk pembentukan dan kualitas buah...",
+      "hash": "A3",
+      "confidence_level": "Tinggi"
+    },
+    "R004": {
+      "IF": [
+        "daun_sangat_hijau_gelap",
+        "pertumbuhan_vegetatif_berlebihan",
+        "bunga_terlambat"
+      ],
+      "THEN": {
+        "diagnosis": "Kelebihan Nitrogen (N)",
+        "severity": "Sedang",
+        "pupuk": "Kurangi Urea, tingkatkan K & P",
+        "dosis": "Berikan pupuk NPK seimbang",
+        "dosis_per_tanaman": "-",
+        "metode": "Perbaiki komposisi pemupukan",
+        "waktu_aplikasi": "-",
+        "precaution": "Aplikasikan air secukupnya untuk melarutkan kelebihan"
+      },
+      "CF": 0.8,
+      "explanation": "Kelebihan Nitrogen menyebabkan tanaman rimbun tapi berbunga lambat.",
+      "hash": "A4",
+      "confidence_level": "Tinggi"
+    },
+    "R005": {
+      "IF": [
+        "daun_tua_menguning_duluan",
+        "tanaman_kerdil",
+        "pertumbuhan_sangat_lambat"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Nitrogen Parah",
+        "severity": "Sangat Tinggi",
+        "pupuk": "Urea dosis dinaikkan",
+        "dosis": "200 kg/ha",
+        "dosis_per_tanaman": "8-10 gram/tanaman",
+        "metode": "Kocor segera",
+        "waktu_aplikasi": "Jika gejala muncul",
+        "precaution": "Jangan sampai terlalu kering"
+      },
+      "CF": 1.0,
+      "explanation": "Kekurangan N parah menyebabkan tanaman tidak berkembang.",
+      "hash": "A5",
+      "confidence_level": "Sangat Tinggi"
+    },
+    "R006": {
+      "IF": [
+        "daun_tua_keunguan",
+        "akar_pendek",
+        "buah_mikro"
+      ],
+      "THEN": {
+        "diagnosis": "Defisiensi Fosfor Lanjut",
+        "severity": "Tinggi",
+        "pupuk": "TSP/Super Phosphate",
+        "dosis": "150 kg/ha",
+        "dosis_per_tanaman": "5 gram/tanaman",
+        "metode": "Tabur, lalu tutup tanah tipis",
+        "waktu_aplikasi": "Fase vegetatif",
+        "precaution": "Jangan aplikasikan saat hujan"
+      },
+      "CF": 0.8,
+      "explanation": "Tanaman butuh P untuk perkembangan akar dan buah.",
+      "hash": "A6",
+      "confidence_level": "Tinggi"
+    },
+    "R007": {
+      "IF": [
+        "buah_deformasi",
+        "daun_menguning_di_tepi",
+        "tanaman_lemah"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Kalium Parah",
+        "severity": "Tinggi",
+        "pupuk": "NPK, KCl ekstra",
+        "dosis": "200 kg/ha",
+        "dosis_per_tanaman": "8 gram/tanaman",
+        "metode": "Tabur/kocor",
+        "waktu_aplikasi": "Fase generatif",
+        "precaution": "Berikan secara bertahap"
+      },
+      "CF": 0.9,
+      "explanation": "Kurang K menurunkan ketahanan dan kualitas buah.",
+      "hash": "A7",
+      "confidence_level": "Sangat Tinggi"
+    },
+    "R008": {
+      "IF": [
+        "pertumbuhan_akar_terhambat",
+        "daun_tua_kuning_merata"
+      ],
+      "THEN": {
+        "diagnosis": "Defisiensi Fosfor Sedang",
+        "severity": "Sedang",
+        "pupuk": "SP-36",
+        "dosis": "75 kg/ha",
+        "dosis_per_tanaman": "2-3 gram/tanaman",
+        "metode": "Tabur",
+        "waktu_aplikasi": "Awal tanam",
+        "precaution": "Campur tanah sebelum tanam"
+      },
+      "CF": 0.7,
+      "explanation": "Gejala kekurangan P paling jelas pada akar.",
+      "hash": "A8",
+      "confidence_level": "Tinggi"
+    },
+    "R009": {
+      "IF": [
+        "daun_muda_keriting",
+        "pertumbuhan_lambat",
+        "buah_kecil"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Magnesium (Mg)",
+        "severity": "Sedang",
+        "pupuk": "Kieserit",
+        "dosis": "50-80 kg/ha",
+        "dosis_per_tanaman": "2-3 gram/tanaman",
+        "metode": "Tabur di permukaan tanah",
+        "waktu_aplikasi": "Fase generatif awal",
+        "precaution": "Jangan over-aplikasi"
+      },
+      "CF": 0.6,
+      "explanation": "Mg penting untuk pertumbuhan daun muda dan pembentukan buah.",
+      "hash": "A9",
+      "confidence_level": "Sedang"
+    },
+    "R010": {
+      "IF": [
+        "daun_hijau_muda",
+        "ruas_batang_pendek",
+        "pertumbuhan_lambat"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan Kalsium (Ca)",
+        "severity": "Sedang",
+        "pupuk": "Kalsit/dolomit",
+        "dosis": "100-150 kg/ha",
+        "dosis_per_tanaman": "5 gram/tanaman",
+        "metode": "Taburkan pada tanah sebelum tanam",
+        "waktu_aplikasi": "Pra-tanam",
+        "precaution": "Campur rata pada lapisan atas tanah"
+      },
+      "CF": 0.6,
+      "explanation": "Ca diperlukan untuk sel dan struktur tanaman.",
+      "hash": "A10",
+      "confidence_level": "Sedang"
+    },
+    "R011": {
+      "IF": [
+        "fasetidaknormal",
+        "daun_menguning",
+        "buah_gagal_matang"
+      ],
+      "THEN": {
+        "diagnosis": "Overdosis Pupuk Kimia",
+        "severity": "Tinggi",
+        "pupuk": "Kurangi aplikasi pupuk kimia",
+        "dosis": "-",
+        "dosis_per_tanaman": "-",
+        "metode": "Flush tanah dengan air bersih",
+        "waktu_aplikasi": "Jika gejala muncul",
+        "precaution": "Perbanyak pupuk organik"
+      },
+      "CF": 0.8,
+      "explanation": "Terlalu banyak pupuk memicu keracunan dan gagal panen.",
+      "hash": "A11",
+      "confidence_level": "Tinggi"
+    },
+    "R012": {
+      "IF": [
+        "akar_busuk",
+        "tanah_keras",
+        "buah_sedikit"
+      ],
+      "THEN": {
+        "diagnosis": "Overdosis Pupuk Nitrogen",
+        "severity": "Tinggi",
+        "pupuk": "Hentikan Urea, beri kompos",
+        "dosis": "-",
+        "dosis_per_tanaman": "-",
+        "metode": "Berikan air mengalir",
+        "waktu_aplikasi": "-",
+        "precaution": "Pantau kondisi akar"
+      },
+      "CF": 0.8,
+      "explanation": "Akar sulit menyerap nutrisi jika tanah jenuh pupuk.",
+      "hash": "A12",
+      "confidence_level": "Tinggi"
+    },
+    "R013": {
+      "IF": [
+        "daun_gugur_sebelum_tua",
+        "bercak_coklat_buah"
+      ],
+      "THEN": {
+        "diagnosis": "Bercak antraknosa (jamur)",
+        "severity": "Sedang",
+        "pupuk": "Perbaiki drainase, tambah Zn dan Ca",
+        "dosis": "Komposisi organik ditingkatkan",
+        "dosis_per_tanaman": "-",
+        "metode": "Semprot fungisida organik",
+        "waktu_aplikasi": "Gejala awal muncul",
+        "precaution": "Sanitasi kebun"
+      },
+      "CF": 0.7,
+      "explanation": "Penyakit jamur berkembang saat kelembapan tinggi.",
+      "hash": "A13",
+      "confidence_level": "Tinggi"
+    },
+    "R014": {
+      "IF": [
+        "daun_keriput",
+        "tangkai_buah_gugur_cepat"
+      ],
+      "THEN": {
+        "diagnosis": "Serangan Virus Kuning",
+        "severity": "Tinggi",
+        "pupuk": "Tambahkan Kalium dan Fosfor",
+        "dosis": "Dosis sesuai rekomendasi",
+        "dosis_per_tanaman": "-",
+        "metode": "Pangkas bagian terkena",
+        "waktu_aplikasi": "Langsung setelah gejala",
+        "precaution": "Kontrol vektor serangga"
+      },
+      "CF": 0.8,
+      "explanation": "Virus kuning menyebabkan abortus buah dan daun menggulung.",
+      "hash": "A14",
+      "confidence_level": "Tinggi"
+    },
+    "R015": {
+      "IF": [
+        "layu_bakteri",
+        "akar_layu",
+        "daun_layu_permanen"
+      ],
+      "THEN": {
+        "diagnosis": "Layu Bakteri",
+        "severity": "Sangat Tinggi",
+        "pupuk": "Hentikan pupuk nitrogen, fokus kompos dan kapur",
+        "dosis": "-",
+        "dosis_per_tanaman": "-",
+        "metode": "Cabut tanaman sakit, solarisasi tanah",
+        "waktu_aplikasi": "Gejala awal",
+        "precaution": "Bakar atau musnahkan tanaman sakit"
+      },
+      "CF": 1.0,
+      "explanation": "Layu bakteri mematikan cepat, perlu sanitasi segera.",
+      "hash": "A15",
+      "confidence_level": "Sangat Tinggi"
+    },
+    "R016": {
+      "IF": [
+        "daun_atas_keriting",
+        "pertumbuhan_batang_menggulung"
+      ],
+      "THEN": {
+        "diagnosis": "Keracunan Herbisida",
+        "severity": "Tinggi",
+        "pupuk": "Flush tanah, kompos lebih banyak",
+        "dosis": "-",
+        "dosis_per_tanaman": "-",
+        "metode": "Siram banyak air",
+        "waktu_aplikasi": "Setelah aplikasi herbisida berlebihan",
+        "precaution": "Hindari penggunaan herbisida kimia"
+      },
+      "CF": 0.8,
+      "explanation": "Gejala fisik akibat dosis kimia/gulma berlebihan.",
+      "hash": "A16",
+      "confidence_level": "Tinggi"
+    },
+    "R017": {
+      "IF": [
+        "tanaman_kriting_daun",
+        "tanaman_merana_tidak_berbuah"
+      ],
+      "THEN": {
+        "diagnosis": "Defisiensi Cu (Tembaga)",
+        "severity": "Sedang",
+        "pupuk": "Pupuk mikro Cu",
+        "dosis": "10-15 kg/ha",
+        "dosis_per_tanaman": "",
+        "metode": "Larutkan dalam air",
+        "waktu_aplikasi": "Awal vegetatif",
+        "precaution": "Dosis jangan berlebihan"
+      },
+      "CF": 0.7,
+      "explanation": "Cu dibutuhkan untuk pembentukan enzim dan kesehatan jaringan.",
+      "hash": "A17",
+      "confidence_level": "Tinggi"
+    },
+    "R018": {
+      "IF": [
+        "tanaman_merana",
+        "daun_tua_berubah_merah"
+      ],
+      "THEN": {
+        "diagnosis": "Defisiensi Boron (B)",
+        "severity": "Sedang",
+        "pupuk": "Pupuk Borat",
+        "dosis": "2-3 kg/ha",
+        "dosis_per_tanaman": "",
+        "metode": "Semprotkan larutan borat",
+        "waktu_aplikasi": "2 minggu setelah tanam",
+        "precaution": "Jangan sampai overdosis"
+      },
+      "CF": 0.6,
+      "explanation": "Boron penting untuk proses pembentukkan buah dan akar.",
+      "hash": "A18",
+      "confidence_level": "Sedang"
+    },
+    "R019": {
+      "IF": [
+        "buah_gugur_muda",
+        "tangkai_buah_layu"
+      ],
+      "THEN": {
+        "diagnosis": "Kekurangan unsur mikro Zn",
+        "severity": "Sedang",
+        "pupuk": "Pupuk mikro Zn",
+        "dosis": "10-15 kg/ha",
+        "dosis_per_tanaman": "",
+        "metode": "Tabur mikro secara merata",
+        "waktu_aplikasi": "Awal generatif",
+        "precaution": "Campurkan ke tanah lembab"
+      },
+      "CF": 0.7,
+      "explanation": "Zn mendukung bunga, mencegah gugur muda.",
+      "hash": "A19",
+      "confidence_level": "Tinggi"
+    },
+    "R020": {
+      "IF": [
+        "buah_mengkerut",
+        "daun_tua_berbercak_coklat"
+      ],
+      "THEN": {
+        "diagnosis": "Infeksi patogen jamur",
+        "severity": "Tinggi",
+        "pupuk": "Fokus organik, kurangi N, tambah K",
+        "dosis": "-",
+        "dosis_per_tanaman": "-",
+        "metode": "Fungisida organik, sanitasi",
+        "waktu_aplikasi": "Awal gejala",
+        "precaution": "Perbaiki drainase dan lingkungan"
+      },
+      "CF": 0.85,
+      "explanation": "Jamur patogen menyebabkan bercak dan gagal buah.",
+      "hash": "A20",
+      "confidence_level": "Sangat Tinggi"
+    }
+  },
+  "rule_metadata": {
+    "R001": {
+      "created_at": "...",
+      "updated_at": "...",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0,
+      "tags": [
+        "nitrogen",
+        "vegetatif",
+        "klorosis"
+      ]
+    },
+    "R002": {
+      "created_at": "...",
+      "updated_at": "...",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0,
+      "tags": [
+        "fosfor",
+        "vegetatif",
+        "ungu"
+      ]
+    },
+    "R003": {
+      "created_at": "...",
+      "updated_at": "...",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0,
+      "tags": [
+        "kalium",
+        "buah"
+      ]
+    },
+    "R004": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R005": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R006": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R007": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R008": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R009": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R010": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R011": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R012": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R013": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R014": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R015": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R016": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R017": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R018": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R019": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    },
+    "R020": {
+      "created_at": "2025-10-24T15:45:17.661178",
+      "updated_at": "2025-10-24T15:45:17.661178",
+      "author": "Expert System",
+      "version": "1.0",
+      "status": "active",
+      "usage_count": 0,
+      "success_rate": 0.0,
+      "tags": []
+    }
+  },
+  "rule_history": {
+    "R001": [
+      {
+        "action": "created",
+        "timestamp": "...",
+        "author": "Expert System",
+        "version": "1.0"
+      }
+    ],
+    "R002": [
+      {
+        "action": "created",
+        "timestamp": "...",
+        "author": "Expert System",
+        "version": "1.0"
+      }
+    ]
+  },
+  "rule_dependencies": {
+    "R001": [],
+    "R002": [],
+    "R003": []
+  },
+  "nutrient_database": {
+    "N": {
+      "name": "Nitrogen",
+      "symbol": "N",
+      "role": "Pertumbuhan vegetatif dan pembentukan klorofil",
+      "deficiency_symptoms": [
+        "Daun menguning merata (klorosis)",
+        "Pertumbuhan terhambat",
+        "Tanaman kerdil",
+        "Daun tua menguning lebih dulu"
+      ],
+      "excess_symptoms": [
+        "Pertumbuhan vegetatif berlebihan",
+        "Daun sangat hijau gelap",
+        "Rentan terhadap hama dan penyakit",
+        "Pembungaan tertunda"
+      ],
+      "sources": [
+        "Urea",
+        "ZA",
+        "NPK"
+      ],
+      "mobility": "Mobile"
+    },
+    "P": {
+      "name": "Fosfor",
+      "symbol": "P",
+      "role": "Pembentukan akar, bunga, dan buah",
+      "deficiency_symptoms": [
+        "Daun tua keunguan atau kemerahan",
+        "Pertumbuhan akar terhambat",
+        "Pembungaan tertunda",
+        "Ukuran buah kecil"
+      ],
+      "excess_symptoms": [
+        "Defisiensi unsur mikro (Zn, Fe)",
+        "Daun menguning"
+      ],
+      "sources": [
+        "SP-36",
+        "TSP",
+        "NPK"
+      ],
+      "mobility": "Mobile"
+    },
+    "K": {
+      "name": "Kalium",
+      "symbol": "K",
+      "role": "Kualitas buah, ketahanan terhadap penyakit",
+      "deficiency_symptoms": [
+        "Tepi daun terbakar (necrosis)",
+        "Daun tua menguning di tepi",
+        "Buah kecil dan tidak berkualitas",
+        "Tanaman lemah"
+      ],
+      "excess_symptoms": [
+        "Defisiensi Mg dan Ca",
+        "Pertumbuhan terhambat"
+      ],
+      "sources": [
+        "KCl",
+        "KNO3",
+        "NPK"
+      ],
+      "mobility": "Mobile"
+    }
+  },
+  "growth_phases": {
+    "vegetatif_awal": {
+      "duration": "0-21 hari",
+      "focus": "Akar",
+      "key_nutrients": [
+        "N",
+        "P"
+      ],
+      "ratio_npk": "1:2:1"
+    },
+    "vegetatif_lanjut": {
+      "duration": "22-42 hari",
+      "focus": "Batang. Daun",
+      "key_nutrients": [
+        "N"
+      ],
+      "ratio_npk": "2:1:1"
+    },
+    "generatif_awal": {
+      "duration": "43-70 hari",
+      "focus": "Bunga",
+      "key_nutrients": [
+        "P",
+        "K"
+      ],
+      "ratio_npk": "1:2:2"
+    },
+    "generatif_lanjut": {
+      "duration": "71-120 hari",
+      "focus": "Buah",
+      "key_nutrients": [
+        "K",
+        "P"
+      ],
+      "ratio_npk": "1:1:3"
+    }
+  },
+  "fuzzy_sets": {
+    "pertumbuhan": {
+      "lambat": {
+        "min": 0,
+        "max": 30,
+        "peak": 20
+      },
+      "normal": {
+        "min": 25,
+        "max": 60,
+        "peak": 45
+      },
+      "cepat": {
+        "min": 55,
+        "max": 100,
+        "peak": 80
+      }
+    },
+    "warna_daun": {
+      "sangat_kuning": {
+        "value": 10
+      },
+      "kuning": {
+        "value": 30
+      },
+      "hijau_muda": {
+        "value": 60
+      },
+      "hijau_normal": {
+        "value": 80
+      },
+      "hijau_gelap": {
+        "value": 95
+      }
+    }
+  },
+  "analytics": {
+    "total_rules": 20,
+    "active_rules": 20,
+    "total_usage": 0,
+    "average_success_rate": 0,
+    "most_used_rules": [],
+    "last_updated": "2025-10-24T14:00:00"
+  }
+}
