@@ -13,22 +13,35 @@ export async function fetchSymptoms() {
   return await res.json();
 }
 
-export async function fetchRules() {
-  const res = await fetch(`${BASE_URL}/rules`);
-  if (!res.ok) throw new Error("Failed to fetch rules");
-  return await res.json();
-}
+export const fetchRules = async () => {
+  try {
+    const response = await fetch('http://localhost:5000/api/rules');
+    const data = await response.json();
+    
+    console.log('🔍 fetchRules response:', data); // ← DEBUG
+    console.log('📊 Rules count:', data.length); // ← DEBUG
+    
+    return data;
+  } catch (error) {
+    console.error('Error fetching rules:', error);
+    throw error;
+  }
+};
+
 
 // ==========================
 // Diagnosis Endpoint
 // ==========================
 
-export async function diagnose(symptoms, fase) {
-  const payload = { symptoms, fase };
+export async function diagnose(symptoms, fase, userCFs = {}) {
   const res = await fetch(`${BASE_URL}/diagnose`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(payload)
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ 
+      symptoms, 
+      fase,
+      user_cfs: userCFs  
+    })
   });
   if (!res.ok) throw new Error("Failed to diagnose");
   return await res.json();
@@ -98,3 +111,46 @@ export async function healthCheck() {
   if (!res.ok) throw new Error("Server health check failed");
   return await res.json();
 }
+
+
+
+
+// Export PDF
+export async function exportPDF(diagnosisData) {
+  try {
+    const res = await fetch(`${BASE_URL}/export/pdf`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(diagnosisData)
+    });
+    
+    if (!res.ok) throw new Error("Failed to export PDF");
+    
+    const blob = await res.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `laporan_diagnosis_${diagnosisData.consultation_id}.pdf`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+  } catch (err) {
+    console.error("Error exporting PDF:", err);
+    alert("Gagal download PDF");
+  }
+}
+
+// Get summary report
+export async function fetchSummaryReport() {
+  const res = await fetch(`${BASE_URL}/reports/summary`);
+  if (!res.ok) throw new Error("Failed to fetch report");
+  return await res.json();
+}
+
+// Get top diagnoses
+export async function fetchTopDiagnoses(topN = 5) {
+  const res = await fetch(`${BASE_URL}/reports/top-diagnoses?top=${topN}`);
+  if (!res.ok) throw new Error("Failed to fetch top diagnoses");
+  return await res.json();
+}
+
+
