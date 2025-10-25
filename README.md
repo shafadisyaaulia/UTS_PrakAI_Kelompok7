@@ -1,5 +1,5 @@
 
-# \# 🌶️ Chili Expert — Sistem Pakar Diagnosa Penyakit Tanaman Cabai
+# 🌶️ Chili Expert — Sistem Pakar Diagnosa Penyakit Tanaman Cabai
 
 Chili Expert adalah **sistem pakar berbasis web** yang dirancang untuk membantu petani, pelajar, maupun masyarakat umum dalam **mendeteksi penyakit pada tanaman cabai secara cepat dan akurat**.  
 Sistem ini memanfaatkan **pengetahuan pakar (knowledge base)** serta **mesin inferensi (inference engine)** untuk memberikan **diagnosa otomatis** berdasarkan gejala yang diinputkan pengguna.
@@ -170,23 +170,20 @@ Tersedia fitur tambahan untuk menampilkan grafik penyakit dan gejala paling seri
 
 ---
 
-## 🖼️ Screenshot / Demo
+## 📸 Screenshots
 
-### 🌱 Halaman Diagnosa
+![Beranda 1](./chili-expert-ui/public/screenshots/beranda-1.png)
+![Beranda 2](./chili-expert-ui/public/screenshots/beranda-2.png)
+![Beranda 3](./chili-expert-ui/public/screenshots/beranda-3.png)
+![Tentang Sistem](./chili-expert-ui/public/screenshots/tentang_sistem.png)
+![Laporan Statistik](./chili-expert-ui/public/screenshots/laporanstatistik.png)
+![Riwayat](./chili-expert-ui/public/screenshots/riwayat.png)
+![Knowledge Base](./chili-expert-ui/public/screenshots/knowledgebase.png)
+![Hasil Diagnosa 2](./chili-expert-ui/public/screenshots/hasildiagnosa2.png)
+![Hasil Diagnosa 1](./chili-expert-ui/public/screenshots/hasildiagnosa1.png)
+![Pilih Gejala](./chili-expert-ui/public/screenshots/pilihgejala.png)
+![Konsultasi](./chili-expert-ui/public/screenshots/konsultasi.png)
 
-![Diagnosis Page](./screenshots/diagnosis-page.png)
-
-### 📊 Halaman Aturan (Rules)
-
-![Rules Page](./screenshots/rules-page.png)
-
-### 🧾 Hasil Diagnosa
-
-![Result Page](./screenshots/result-page.png)
-
-> *(Letakkan gambar di folder `chili-expert-ui/public/screenshots/` dan sesuaikan path di atas.)*
-
----
 
 ## 💡 Teknologi yang Digunakan
 
