@@ -319,7 +319,7 @@ Dilarang memperjualbelikan atau mendistribusikan ulang tanpa izin dari seluruh a
 ## 🙏 **Acknowledgments**
 
 - **Balai Penelitian Tanaman Sayuran (Balitsa)** - Sumber data dan validasi rules
-- **Dosen Pengampu Mata Kuliah AI** - Bimbingan dan feedback
+- **Aslab Praktikum AI A** - Bimbingan dan feedback
 - **Open Source Community** - Tools dan libraries yang digunakan
 
 ***
